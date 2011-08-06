@@ -10,7 +10,7 @@
 	rm init*
 	rm logo.rle
 	rm default.prop
-	tar -xf /system/bin/ramdisk.tar
+	tar -xf /system/bin/boot.tar
 	# nobodyAtall - Fix 
 	mkdir -p /cm
 	cd /cm
