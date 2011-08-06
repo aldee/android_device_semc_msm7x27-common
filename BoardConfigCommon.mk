@@ -59,6 +59,7 @@ TARGET_USES_OLD_LIBSENSORS_HAL:=true
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun
 
+BOARD_CUSTOM_BOOTIMG_MK := device/semc/msm7x30-common/custombootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_HAS_BOOT_RECOVERY := true
 BOARD_HAS_SMALL_RECOVERY := true

@@ -74,10 +74,7 @@ PRODUCT_COPY_FILES += \
 
 #crappy headset
 PRODUCT_COPY_FILES += \
-    vendor/semc/msm7x27-common/proprietary/hal_seport.default.so:system/lib/hw/hal_seport.delta.so \
-    device/semc/msm7x27-common/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \
-    vendor/semc/msm7x27-common/proprietary/libuinputdevicejni.so:system/lib/libsystemconnector/libuinputdevicejni.so \
-    vendor/semc/msm7x27-common/proprietary/libsystemconnector_hal_jni.so:system/lib/libsystemconnector_hal_jni.so 
+    device/semc/msm7x27-common/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk 
 
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
