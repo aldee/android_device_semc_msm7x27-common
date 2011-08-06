@@ -58,50 +58,49 @@ PRODUCT_COPY_FILES += \
 
 #Kernel modules
 PRODUCT_COPY_FILES += \
-    device/semc/robyn/modules/ax8_smartass.ko:system/lib/modules/ax8_smartass.ko \
-    device/semc/robyn/modules/x8mddi.ko:system/lib/modules/x8mddi.ko \
-    device/semc/robyn/modules/dm-mod.ko:system/lib/modules/dm-mod.ko \
-    device/semc/robyn/modules/dm-crypt.ko:system/lib/modules/dm-crypt.ko \
-    device/semc/robyn/modules/twofish.ko:system/lib/modules/twofish.ko \
-    device/semc/robyn/modules/twofish_common.ko:system/lib/modules/twofish_common.ko 
+    device/semc/msm7x27-common/modules/x8mddi.ko:system/lib/modules/x8mddi.ko \
+    device/semc/msm7x27-common/modules/dm-mod.ko:system/lib/modules/dm-mod.ko \
+    device/semc/msm7x27-common/modules/dm-crypt.ko:system/lib/modules/dm-crypt.ko \
+    device/semc/msm7x27-common/modules/twofish.ko:system/lib/modules/twofish.ko \
+    device/semc/msm7x27-common/modules/twofish_common.ko:system/lib/modules/twofish_common.ko 
 
 #crappy headset
 PRODUCT_COPY_FILES += \
-    vendor/semc/robyn/proprietary/hal_seport.default.so:system/lib/hw/hal_seport.robyn.so \
-    device/semc/robyn/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \
-    vendor/semc/robyn/proprietary/libuinputdevicejni.so:system/lib/libsystemconnector/libuinputdevicejni.so \
-    vendor/semc/robyn/proprietary/libsystemconnector_hal_jni.so:system/lib/libsystemconnector_hal_jni.so 
+    vendor/semc/msm7x27-common/proprietary/hal_seport.default.so:system/lib/hw/hal_seport.delta.so \
+    device/semc/msm7x27-common/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \
+    vendor/semc/msm7x27-common/proprietary/libuinputdevicejni.so:system/lib/libsystemconnector/libuinputdevicejni.so \
+    vendor/semc/msm7x27-common/proprietary/libsystemconnector_hal_jni.so:system/lib/libsystemconnector_hal_jni.so 
 
 PRODUCT_COPY_FILES += \
-    device/semc/robyn/prebuilt/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
-    device/semc/robyn/prebuilt/AudioFilter.csv:system/etc/AudioFilter.csv
+    device/semc/msm7x27-common/prebuilt/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/semc/msm7x27-common/prebuilt/AudioFilter.csv:system/etc/AudioFilter.csv
 
 #new charging animations
 PRODUCT_COPY_FILES += \
-    device/semc/robyn/prebuilt/animations/anim1.rle:system/etc/semc/chargemon/anim1.rle \
-    device/semc/robyn/prebuilt/animations/anim2.rle:system/etc/semc/chargemon/anim2.rle \
-    device/semc/robyn/prebuilt/animations/anim3.rle:system/etc/semc/chargemon/anim3.rle \
-    device/semc/robyn/prebuilt/animations/anim4.rle:system/etc/semc/chargemon/anim4.rle \
-    device/semc/robyn/prebuilt/animations/anim5.rle:system/etc/semc/chargemon/anim5.rle \
-    device/semc/robyn/prebuilt/animations/anim6.rle:system/etc/semc/chargemon/anim6.rle \
-    device/semc/robyn/prebuilt/animations/anim7.rle:system/etc/semc/chargemon/anim7.rle \
-    device/semc/robyn/prebuilt/animations/anim8.rle:system/etc/semc/chargemon/anim8.rle 
+    device/semc/msm7x27-common/prebuilt/animations/anim1.rle:system/etc/semc/chargemon/anim1.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim2.rle:system/etc/semc/chargemon/anim2.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim3.rle:system/etc/semc/chargemon/anim3.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim4.rle:system/etc/semc/chargemon/anim4.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim5.rle:system/etc/semc/chargemon/anim5.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim6.rle:system/etc/semc/chargemon/anim6.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim7.rle:system/etc/semc/chargemon/anim7.rle \
+    device/semc/msm7x27-common/prebuilt/animations/anim8.rle:system/etc/semc/chargemon/anim8.rle 
 
 #xrecovery
 PRODUCT_COPY_FILES += \
-    device/semc/robyn/prebuilt/chargemon:system/bin/chargemon \
-    device/semc/robyn/prebuilt/ramdisk.tar:system/bin/ramdisk.tar \
-    device/semc/robyn/prebuilt/sh:system/xbin/sh
+    device/semc/msm7x27-common/prebuilt/chargemon:system/bin/chargemon \
+    device/semc/msm7x27-common/prebuilt/ramdisk.tar:system/bin/ramdisk.tar \
+    device/semc/msm7x27-common/prebuilt/sh:system/xbin/sh
 
 
 PRODUCT_PACKAGES += \
     mount_system \
     hostap \
     librs_jni \
-    gralloc.robyn \
-    copybit.robyn \
-    gps.robyn \
-    lights.robyn \
+    gralloc.delta \
+    copybit.delta \
+    gps.delta \
+    lights.delta \
     libOmxCore \
     libmm-omxcore \
     com.android.future.usb.accessory

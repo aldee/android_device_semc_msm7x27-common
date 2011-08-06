@@ -31,7 +31,7 @@ LOCAL_SRC_FILES := 	\
 	mapper.cpp		\
 	pmemalloc.cpp
 	
-LOCAL_MODULE := gralloc.msm7k
+LOCAL_MODULE := gralloc.delta
 LOCAL_CFLAGS:= -DLOG_TAG=\"$(TARGET_BOARD_PLATFORM).gralloc\"
 
 LOCAL_CFLAGS += -DTARGET_MSM7x27
