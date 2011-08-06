@@ -237,8 +237,8 @@ int cmd_mtd_mount_partition(const char *partition, const char *mount_point, cons
 }
 
 int main() {
-	printf ("Mounting /system partition to /minicm/system\n");
-	cmd_mtd_mount_partition("system", "/minicm/system", "yaffs2", 0);
+	printf ("Mounting /system partition to /cm/system\n");
+	cmd_mtd_mount_partition("system", "/cm/system", "yaffs2", 0);
 	return 0;
 }
 

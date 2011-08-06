@@ -94,7 +94,6 @@ PRODUCT_COPY_FILES += \
 #xrecovery
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/chargemon:system/bin/chargemon \
-    device/semc/msm7x27-common/prebuilt/ramdisk.tar:system/bin/ramdisk.tar \
     device/semc/msm7x27-common/prebuilt/sh:system/xbin/sh
 
 
