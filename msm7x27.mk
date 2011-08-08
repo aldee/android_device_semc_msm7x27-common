@@ -20,8 +20,7 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/ueventd.delta.rc:root/ueventd.delta.rc \
     device/semc/msm7x27-common/recovery.fstab:root/recovery.fstab \
     device/semc/msm7x27-common/prebuilt/vold.fstab:system/etc/vold.fstab \
-    device/semc/msm7x27-common/prebuilt/hw_config.sh:system/etc/hw_config.sh \
-    device/semc/msm7x27-common/prebuilt/initlogo.rle:root/initlogo.rle 
+    device/semc/msm7x27-common/prebuilt/hw_config.sh:system/etc/hw_config.sh 
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -80,16 +79,6 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/semc/msm7x27-common/prebuilt/AudioFilter.csv:system/etc/AudioFilter.csv
 
-#new charging animations
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/animations/anim1.rle:system/etc/semc/chargemon/anim1.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim2.rle:system/etc/semc/chargemon/anim2.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim3.rle:system/etc/semc/chargemon/anim3.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim4.rle:system/etc/semc/chargemon/anim4.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim5.rle:system/etc/semc/chargemon/anim5.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim6.rle:system/etc/semc/chargemon/anim6.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim7.rle:system/etc/semc/chargemon/anim7.rle \
-    device/semc/msm7x27-common/prebuilt/animations/anim8.rle:system/etc/semc/chargemon/anim8.rle 
 
 #xrecovery
 PRODUCT_COPY_FILES += \
