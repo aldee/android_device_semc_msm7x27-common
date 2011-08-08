@@ -67,6 +67,7 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USES_RECOVERY_CHARGEMODE := false
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_LDPI_RECOVERY := true
+BOARD_HAS_JANKY_BACKBUFFER := true
 BOARD_CUSTOM_RECOVERY_FILES := ../../device/semc/msm7x27-common/recovery/extendedcommands.c \
 				../../device/semc/msm7x27-common/recovery/recovery.c \
 				../../device/semc/msm7x27-common/recovery/roots.c
