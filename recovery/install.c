@@ -42,10 +42,6 @@
 #include "make_ext4fs.h"
 #endif
 
-#include "mmcutils/mmcutils.h"
-#include "extendedcommands.h"
-
-
 // mount(fs_type, partition_type, location, mount_point)
 //
 //    fs_type="yaffs2" partition_type="MTD"     location=partition
@@ -58,7 +54,6 @@ Value* MountFn(const char* name, State* state, int argc, Expr* argv[]) {
     char* fs_type;
     char* partition_type;
     char* location;
-
     char* mount_point;
     if (ReadArgs(state, argv, 4, &fs_type, &partition_type,
                  &location, &mount_point) < 0) {
@@ -187,8 +182,6 @@ done:
 //    fs_type="ext4"   partition_type="EMMC"    location=device
 Value* FormatFn(const char* name, State* state, int argc, Expr* argv[]) {
     char* result = NULL;
-    int __system(const char *command);
-
     if (argc != 3) {
         return ErrorAbort(state, "%s() expects 3 args, got %d", name, argc);
     }
@@ -223,21 +216,22 @@ Value* FormatFn(const char* name, State* state, int argc, Expr* argv[]) {
             result = strdup("");
             goto done;
         }
-  /* Make sure the MTD volume is unmounted first */
-  scan_mounted_volumes();
-  unmountthis = (char *) malloc((strlen(location) + 1) * sizeof (char));
-  strcpy(unmountthis, "/");
-  strcat(unmountthis, location);
-  if (strcmp (unmountthis, "/userdata") == 0)
-      strcpy(unmountthis, "/data");
-  const MountedVolume* vol = find_mounted_volume_by_mount_point(unmountthis);
-  if (vol == NULL) {
-      fprintf(stderr, "unmount of %s failed; no such volume\n", unmountthis);
-  } else {
-      fprintf(stderr, "Unmounting %s\n", unmountthis);
-      unmount_mounted_volume(vol);
-  }
-  /* If this is /system, we don't format it, instead we rm -rf */
+
+	/* Make sure the MTD volume is unmounted first */
+	scan_mounted_volumes();
+	unmountthis = (char *) malloc((strlen(location) + 1) * sizeof (char));
+	strcpy(unmountthis, "/");
+	strcat(unmountthis, location);
+	if (strcmp (unmountthis, "/userdata") == 0)
+	    strcpy(unmountthis, "/data");
+	const MountedVolume* vol = find_mounted_volume_by_mount_point(unmountthis);
+	if (vol == NULL) {
+	    fprintf(stderr, "unmount of %s failed; no such volume\n", unmountthis);
+	} else {
+	    fprintf(stderr, "Unmounting %s\n", unmountthis);
+	    unmount_mounted_volume(vol);
+	}
+	/* If this is /system, we don't format it, instead we rm -rf */
         if (strcmp(location, "system") == 0) {
             const MtdPartition* mtd;
             mtd = mtd_find_partition_by_name(location);
@@ -251,7 +245,8 @@ Value* FormatFn(const char* name, State* state, int argc, Expr* argv[]) {
             __system("/sbin/rm -rf /system/*");
             result = location;
             goto done;
-      }
+    	}
+	
         MtdWriteContext* ctx = mtd_write_partition(mtd);
         if (ctx == NULL) {
             fprintf(stderr, "%s: can't write \"%s\"", name, location);
