@@ -65,6 +65,9 @@ PRODUCT_COPY_FILES += \
 
 #Kernel modules
 PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/modules/sdio.ko:system/lib/modules/sdio.ko \
+    device/semc/msm7x27-common/modules/tiwlan_drv.ko:system/lib/modules/tiwlan_drv.ko \
+    device/semc/msm7x27-common/modules/tiap_drv.ko:system/lib/modules/tiap_drv.ko \
     device/semc/msm7x27-common/modules/x8mddi.ko:system/lib/modules/x8mddi.ko \
     device/semc/msm7x27-common/modules/dm-mod.ko:system/lib/modules/dm-mod.ko \
     device/semc/msm7x27-common/modules/dm-crypt.ko:system/lib/modules/dm-crypt.ko \
