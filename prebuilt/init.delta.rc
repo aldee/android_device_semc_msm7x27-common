@@ -96,10 +96,10 @@ on boot
 #    insmod /system/lib/modules/x8mddi.ko
 
 # Froyo's app2sd kernel modules
-#    insmod /system/lib/modules/dm-mod.ko
-#    insmod /system/lib/modules/dm-crypt.ko
-#    insmod /system/lib/modules/twofish_common.ko
-#    insmod /system/lib/modules/twofish.ko
+    insmod /system/lib/modules/dm-mod.ko
+    insmod /system/lib/modules/dm-crypt.ko
+    insmod /system/lib/modules/twofish_common.ko
+    insmod /system/lib/modules/twofish.ko
 
 service dhcp-service /system/bin/netcfg eth0 dhcp
 	oneshot
