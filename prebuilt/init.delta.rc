@@ -172,3 +172,13 @@ on early-init
     device /dev/akm8975_dev 0660 compass system
 
 
+# Needed for touch support
+service inputattach /system/bin/inputattach -cypress /dev/ttyHS1
+
+# Needed for slidercounter
+service slidercounter /system/bin/slidercounter mimmi_keypad
+
+# Check touch FW
+service ts_fw_update /system/bin/sh /system/etc/ts_fw_update.sh
+    user root
+    oneshot
