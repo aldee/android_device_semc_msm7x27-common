@@ -1,6 +1,6 @@
 #!/system/xbin/sh
 
-#/system/bin/charger
+/system/bin/charger
 
 	# remount rootfs rw
 	mount -o remount,rw rootfs /

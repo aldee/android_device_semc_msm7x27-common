@@ -13,6 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# These is the hardware-common overlay, which points to the location
+# of hardware-specific resource overrides, typically the frameworks and
+# application settings that are stored in resourced.
+DEVICE_PACKAGE_OVERLAYS += device/semc/msm7x27-common/overlay
+
+
 PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/device/semc/msm7x27-common/prelink-linux-arm-x8.map
 
 PRODUCT_COPY_FILES += \
@@ -95,7 +102,6 @@ PRODUCT_PACKAGES += \
     gralloc.delta \
     copybit.delta \
     gps.delta \
-    lights.delta \
     libOmxCore \
     libmm-omxcore \
     com.android.future.usb.accessory
