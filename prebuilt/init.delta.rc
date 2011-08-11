@@ -92,7 +92,7 @@ on boot
     chmod 0777 /sys/devices/platform/msm_pmic_flash_led/spotlight:enable
     chmod 0777 /sys/devices/platform/i2c-adapter/i2c-0/0-0036/br::intensity
     chmod 0777 /sys/devices/platform/i2c-adapter/i2c-0/0-0036/mode
-
+    chmod 0777 /sys/devices/platform/msm_pmic_misc_led.0/brightness
 
 #needed for ril
     mkdir /data/radio 0777
@@ -107,14 +107,12 @@ on boot
 # included in the kernel.
 #    insmod /system/lib/modules/sdio.ko
 
-# insert kernel module for mddi fix
-    insmod /system/lib/modules/x8mddi.ko
 
 # Froyo's app2sd kernel modules
-    insmod /system/lib/modules/dm-mod.ko
-    insmod /system/lib/modules/dm-crypt.ko
-    insmod /system/lib/modules/twofish_common.ko
-    insmod /system/lib/modules/twofish.ko
+#    insmod /system/lib/modules/dm-mod.ko
+#    insmod /system/lib/modules/dm-crypt.ko
+#    insmod /system/lib/modules/twofish_common.ko
+#    insmod /system/lib/modules/twofish.ko
 
 service dhcp-service /system/bin/netcfg eth0 dhcp
 	oneshot

@@ -202,7 +202,8 @@ board_property boardProperties[] = {
 //sorted on column basis
 static const camera_size_type picture_sizes[] = {
     { 2592, 1944 }, // 5MP
-    { 1280, 960 }, //WXGA
+    { 1632, 1224 }, // 2MP
+    { 1280, 960 }, //1MP
     { 640, 480 }, // VGA
 };
 static int PICTURE_SIZE_COUNT = sizeof(picture_sizes)/sizeof(camera_size_type);
@@ -2288,7 +2289,7 @@ bool QualcommCameraHardware::initRawSnapshot()
     }
 
     //Pmem based pool for Camera Driver
-    mRawSnapShotPmemHeap = new PmemPool("/dev/pmem_adsp",
+    mRawSnapShotPmemHeap = new PmemPool("/dev/pmem",
                                     MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
                                     mCameraControlFd,
                                     MSM_PMEM_RAW_MAINIMG,
@@ -2371,7 +2372,7 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
 
     LOGV("initRaw: initializing mRawHeap.");
     mRawHeap =
-        new PmemPool("/dev/pmem_adsp",
+        new PmemPool("/dev/pmem",
                      MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
                      mCameraControlFd,
                      MSM_PMEM_MAINIMG,
