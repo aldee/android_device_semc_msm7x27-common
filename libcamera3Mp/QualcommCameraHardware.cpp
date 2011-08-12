@@ -202,7 +202,7 @@ typedef struct {
 } thumbnail_size_type;
 
 static thumbnail_size_type thumbnail_sizes[] = {
-    { 6826, 480, 288 } //1.666667
+    { 6826, 480, 288 }, //1.666667
     { 6144, 432, 288 }, //1.5
     { 5461, 512, 384 }, //1.333333
     { 5006, 352, 288 }, //1.222222
@@ -1621,7 +1621,7 @@ bool QualcommCameraHardware::initPreview()
     mPreviewFrameSize = previewWidth * previewHeight * 3/2;
     dstOffset = 0;
     mPreviewHeap = new PmemPool("/dev/pmem_adsp",
-                                MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
+                                MemoryHeapBase::READ_ONLY,
                                 mCameraControlFd,
                                 MSM_PMEM_PREVIEW, //MSM_PMEM_OUTPUT2,
                                 mPreviewFrameSize,
@@ -1723,8 +1723,8 @@ bool QualcommCameraHardware::initRawSnapshot()
     }
 
     //Pmem based pool for Camera Driver
-    mRawSnapShotPmemHeap = new PmemPool("/dev/pmem",
-                                    MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
+    mRawSnapShotPmemHeap = new PmemPool("/dev/pmem_adsp",
+                                    MemoryHeapBase::READ_ONLY,
                                     mCameraControlFd,
                                     MSM_PMEM_RAW_MAINIMG,
                                     rawSnapshotSize,
@@ -1806,11 +1806,11 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
 
     LOGV("initRaw: initializing mRawHeap.");
     mRawHeap =
-        new PmemPool("/dev/pmem",
-                     MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
+        new PmemPool("/dev/pmem_adsp",
+                     MemoryHeapBase::READ_ONLY,
                      mCameraControlFd,
                      MSM_PMEM_MAINIMG,
-                     mJpegMaxSize,
+                     mRawSize,
                      kRawBufferCount,
                      mRawSize,
                      "snapshot camera");
@@ -1846,7 +1846,7 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
 
         mThumbnailHeap =
             new PmemPool("/dev/pmem_adsp",
-                         MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
+                         MemoryHeapBase::READ_ONLY,
                          mCameraControlFd,
                          MSM_PMEM_THUMBNAIL,
                          thumbnailBufferSize,
@@ -2723,7 +2723,7 @@ bool QualcommCameraHardware::initRecord()
         pmem_region = "/dev/pmem_adsp";
 
     mRecordHeap = new PmemPool(pmem_region,
-                               MemoryHeapBase::READ_ONLY | MemoryHeapBase::NO_CACHING,
+                               MemoryHeapBase::READ_ONLY,
                                 mCameraControlFd,
                                 MSM_PMEM_VIDEO,
                                 mRecordFrameSize,
