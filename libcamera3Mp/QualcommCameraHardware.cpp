@@ -1709,9 +1709,8 @@ bool QualcommCameraHardware::initRawSnapshot()
         LOGE("initRawSnapshot X: failed to set dimension");
         return false;
     }
-    int rawSnapshotSize = mDimension.raw_picture_height *
+   int rawSnapshotSize = mDimension.raw_picture_height *
                            mDimension.raw_picture_width;
-
     LOGV("raw_snapshot_buffer_size = %d, raw_picture_height = %d, "\
          "raw_picture_width = %d",
           rawSnapshotSize, mDimension.raw_picture_height,
@@ -1798,10 +1797,11 @@ bool QualcommCameraHardware::initRaw(bool initJpegHeap)
 
     // Snapshot
     mRawSize = rawWidth * rawHeight * 3 / 2;
+//   mRawSize = mDimension.raw_picture_height * mDimension.raw_picture_width;
 
-    if( mCurrentTarget == TARGET_MSM7627 )
-             mJpegMaxSize = CEILING16(rawWidth) * CEILING16(rawHeight) * 3 / 2;
-    else
+//    if( mCurrentTarget == TARGET_MSM7627 )
+//             mJpegMaxSize = CEILING16(rawWidth) * CEILING16(rawHeight) * 3 / 2;
+//    else
              mJpegMaxSize = rawWidth * rawHeight * 3 / 2;
 
     LOGV("initRaw: initializing mRawHeap.");
